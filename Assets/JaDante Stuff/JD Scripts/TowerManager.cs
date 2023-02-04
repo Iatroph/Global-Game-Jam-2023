@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    [Header("Projectile Spawn Points")]
-    public Transform seedSpawn;
-    public Transform sapSpawn;
-    public Transform pineconeSpawn;
-
-    [Header("Tower/Wall Prices")]
-    public float seedPrice;
-    public float sapPrice;
-    public float pineconePrice;
-    public float wallPrice;
+    // raycast to certain tiles to build walls/turrents
+    [Header("Tower Prefab/Prices")]
+    [SerializeField] public TowerStruct[] towers;
 
     [Header("Temporary Stuff")]
     public float currentPoints;
-    public Transform[] wallSpawnPoints;
-    public GameObject wall;
-    public GameObject seedTurret;
-    public GameObject sapTurret;
-    public GameObject pineconeTurret;
+    public Transform towerSpawn;
+
+    private GameObject towerTrans;
+    private int index = 0;
+    private bool towerPlaced = false;
 
     private void Start()
     {
@@ -29,25 +22,63 @@ public class TowerManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1) && currentPoints > wallPrice)
+        if(!towerPlaced)
         {
-            BuildWall(currentPoints, wallSpawnPoints[0]);
+            TowerOutline();
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha2) && currentPoints > wallPrice)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            BuildWall(currentPoints, wallSpawnPoints[1]);
+            if(index - 1 < 0)
+            {
+                index = towers.Length - 1;
+            }
+            else
+            {
+                index--;
+                Debug.Log(index);
+            }
+
+            towerPlaced = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && currentPoints > wallPrice)
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            BuildWall(currentPoints, wallSpawnPoints[2]);
+            if (index + 1 == towers.Length)
+            {
+                index = 0;
+            }
+            else
+            {
+                index++;
+                Debug.Log(index);
+            }
+
+            towerPlaced = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            BuildTowers();
         }
     }
-    public float BuildWall(float points, Transform spawnLocation)
+    private void TowerOutline()
     {
-        Instantiate(wall, spawnLocation);
-        points -= wallPrice;
-        return points;
+        Destroy(towerTrans);
+
+        towerTrans = Instantiate(towers[index].towerTransparent, towerSpawn);
+
+        towerPlaced = true;
+    }
+    public void BuildTowers()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0) && currentPoints > towers[index].towerCost)
+        {
+            Destroy(towerTrans);
+            Instantiate(towers[index].tower, towerSpawn);
+            currentPoints -= towers[index].towerCost;
+        }
+
+        //towerPlaced = false;
     }
 }

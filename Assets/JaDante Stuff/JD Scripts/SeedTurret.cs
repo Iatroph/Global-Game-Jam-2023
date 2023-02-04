@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SeedTurret : MonoBehaviour
 {
-    
+    // change mesh for upgrade
     private void Start()
     {
         //towerManager = FindObjectOfType<TowerManager>();
