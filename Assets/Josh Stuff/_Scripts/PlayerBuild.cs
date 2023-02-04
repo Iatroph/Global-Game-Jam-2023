@@ -57,6 +57,10 @@ public class PlayerBuild : MonoBehaviour
                     wallOutlineObject.transform.position = hit2.transform.position + new Vector3(0, 2, 0);
                     wallOutlineObject.SetActive(true);
                 }
+                else
+                {
+                    wallOutlineObject.SetActive(false);
+                }
 
             }
         }
