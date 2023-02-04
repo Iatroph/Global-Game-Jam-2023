@@ -132,16 +132,12 @@ public class EnemyTank : Enemy
         stateCurrent = TankStates.Attacking;
         if (attackCooldown == 0)
         {
-            StartCoroutine(SmallAttack());
         }
     }
 
     void StateAttackingRemain()
     {
-        if (attackCooldown == 0)
-        {
-            StartCoroutine(SmallAttack());
-        }
+        
     }
 
     void StateAttackingExit()
@@ -159,30 +155,6 @@ public class EnemyTank : Enemy
     void StateDeadRemain()
     {
 
-    }
-
-    IEnumerator SmallAttack()
-    {
-        Debug.Log("Small Attack");
-        attackLocked = true;
-        attackCooldown = 19;
-        base.animator.SetBool("attackingWeak", true);
-
-        yield return new WaitForSeconds(.6f);
-        if (sr.flipX == false)
-        {
-            Instantiate(smallAttack, leftAttackSpawn.position, new Quaternion(0, 0, 0, 0));
-        }
-        else
-        {
-            Instantiate(smallAttack, leftAttackSpawn.position, new Quaternion(0, 0, 0, 0));
-        }
-
-        yield return new WaitForSeconds(.3f);
-
-        attackLocked = false;
-        base.animator.SetBool("attackingWeak", false);
-        yield return null;
     }
 
     public override void ChangeHealth(float amount)
