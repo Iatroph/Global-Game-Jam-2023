@@ -29,7 +29,7 @@ public class PlayerBuild : MonoBehaviour
         {
             if(Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, 8f))
             {
-                if(hit.point != null)
+                if (hit.point != null)
                 {
                     if(hit.transform.CompareTag("Ground Tile"))
                     {

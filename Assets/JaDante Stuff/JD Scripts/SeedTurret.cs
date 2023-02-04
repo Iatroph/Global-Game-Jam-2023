@@ -6,6 +6,7 @@ public class SeedTurret : MonoBehaviour
 {
     public Vector3 center;
     public float attackRange;
+    public LayerMask enemyLayer;
     // change mesh for upgrade
     private void Start()
     {
@@ -13,11 +14,12 @@ public class SeedTurret : MonoBehaviour
     }
     private void Update()
     {
-        Collider[] inRange = Physics.OverlapSphere(center, attackRange);
+        Collider[] inRange = Physics.OverlapSphere(center, attackRange, enemyLayer.value);
 
         if (inRange.Length > 0)
         {
             Collider closest = FindClosest(inRange);
+            Debug.Log(closest.name);
             Attack(closest.gameObject);
         }
     }
@@ -28,6 +30,7 @@ public class SeedTurret : MonoBehaviour
 
         foreach(Collider collider in inRange)
         {
+
             float temp = Vector3.Distance(collider.gameObject.transform.position, gameObject.transform.position);
             if(temp < lowest)
             {

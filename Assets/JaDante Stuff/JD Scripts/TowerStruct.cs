@@ -7,7 +7,5 @@ public struct TowerStruct
 {
     public GameObject tower;
     public GameObject towerTransparent;
-    public Material placingMaterial;
-    public Material placedMaterial;
     public float towerCost;
 }
