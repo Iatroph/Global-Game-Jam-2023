@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground Tile
   - Node
+  - Enemy
   layers:
   - Default
   - TransparentFX
