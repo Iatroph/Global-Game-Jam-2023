@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SapTurret : MonoBehaviour
+public class SapTurret : Turret
 {
     public Vector3 center;
+    public Transform projectileSpawn;
     public float attackRange;
     public LayerMask enemyLayer;
+    public GameObject sap;
 
+    private GameObject projectile;
+
+    // change mesh for upgrade
     private void Start()
     {
-
+        turretLevel = 1;
     }
     private void Update()
     {
+        turretText.text = turretLevel.ToString();
         Collider[] inRange = Physics.OverlapSphere(center, attackRange, enemyLayer.value);
 
         if (inRange.Length > 0)
@@ -45,6 +51,17 @@ public class SapTurret : MonoBehaviour
     {
         transform.LookAt(closest.transform.position);
 
-        // instantiate projectile
+        if (projectile == null && turretLevel == 1)
+        {
+            projectile = Instantiate(sap, projectileSpawn);
+            projectile.GetComponent<SapScript>().speed = speedLevel1;
+            projectile.GetComponent<SapScript>().damage = damageLevel1;
+        }
+        else if (projectile == null && turretLevel == 2)
+        {
+            projectile = Instantiate(sap, projectileSpawn);
+            projectile.GetComponent<SapScript>().speed = speedLevel2;
+            projectile.GetComponent<SapScript>().damage = damageLevel2;
+        }
     }
 }

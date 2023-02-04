@@ -15,7 +15,8 @@ public class TowerManager : MonoBehaviour
 
     private int index = 0;
     private bool allowOutline, outlineDrawn = false, redrawOutline = false;
-    GameObject towerOutline, currentWall;
+    GameObject towerOutline, currentWall, tower;
+    float endVal = 0;
 
     private void Start()
     {
@@ -29,18 +30,26 @@ public class TowerManager : MonoBehaviour
             {
                 if (hit.point != null)
                 {
-                    if (hit.transform.CompareTag("Wall"))
+                    if (hit.transform.CompareTag("Wall") && hit.transform.childCount == 0 && currentPoints > towers[index].towerCostLevel1)
                     {
                         //Debug.Log(hit.transform.name);
                         //Debug.DrawLine(playerCam.transform.position, hit.point, Color.red, 2f);
-
-                        GameObject tower = Instantiate(towers[index].tower, hit.transform);
-                        tower.transform.DOMoveY(hit.transform.position.y + 2, 1);
+                        currentPoints -= towers[index].towerCostLevel1;
+                        tower = Instantiate(towers[index].tower, hit.transform);
+                        endVal = hit.transform.position.y + 2;
+                        tower.transform.DOMoveY(endVal, 1);
                         //towers[0].towerTransparent.SetActive(false);
                         Destroy(towerOutline);
                         outlineDrawn = false;
                         allowOutline = false;
                         Invoke(nameof(ResetOutline), 0.2f);
+                    }
+                    else if(hit.transform.CompareTag("Wall") && currentPoints > towers[index].towerCostLevel2)
+                    {
+                        currentPoints -= towers[index].towerCostLevel2;
+                        tower = hit.transform.GetChild(0).gameObject;
+                        tower.GetComponent<Turret>().turretLevel = 2;
+                        tower = null;
                     }
 
                 }
@@ -77,6 +86,12 @@ public class TowerManager : MonoBehaviour
             outlineDrawn = false;
         }
 
+        if(tower != null && tower.transform.position.y == endVal)
+        {
+            tower.GetComponent<Turret>().enabled = true;
+            tower = null;
+            endVal = 0;
+        }
         if(outlineDrawn)
         {
             if (Input.GetKeyDown(KeyCode.Q))

@@ -7,5 +7,5 @@ public struct TowerStruct
 {
     public GameObject tower;
     public GameObject towerTransparent;
-    public float towerCost;
+    public float towerCostLevel1, towerCostLevel2;
 }
