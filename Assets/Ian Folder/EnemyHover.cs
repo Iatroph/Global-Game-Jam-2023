@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyTank : Enemy
+public class EnemyHover : Enemy
 {
-    private TankStates stateCurrent = TankStates.Idle;
+    private HoverStates stateCurrent = HoverStates.Idle;
 
     private ParticleSystem ps;
 
-    public enum TankStates
+    public enum HoverStates
     {
         Idle = 0,
         Marching,
@@ -26,13 +26,13 @@ public class EnemyTank : Enemy
     {
         switch (stateCurrent)
         {
-            case TankStates.Idle:
+            case HoverStates.Idle:
                 if (isDead) { StateDeadEnter(); }
                 else if (base.marchDelay <= 0f) { StateMarchingEnter(); }
                 else { StateIdleRemain(); }
                 break;
 
-            case TankStates.Marching:
+            case HoverStates.Marching:
                 if (isDead) { StateDeadEnter(); }
                 break;
         }
@@ -40,7 +40,7 @@ public class EnemyTank : Enemy
 
     void StateIdleEnter()
     {
-        stateCurrent = TankStates.Idle;
+        stateCurrent = HoverStates.Idle;
         base.agent.destination = transform.position;
     }
 
@@ -51,13 +51,13 @@ public class EnemyTank : Enemy
 
     void StateMarchingEnter()
     {
-        stateCurrent = TankStates.Marching;
+        stateCurrent = HoverStates.Marching;
         base.agent.destination = tree.transform.position;
     }
 
     void StateDeadEnter()
     {
-        stateCurrent = TankStates.Dead;
+        stateCurrent = HoverStates.Dead;
         base.agent.destination = transform.position;
         Destroy(gameObject);
     }
