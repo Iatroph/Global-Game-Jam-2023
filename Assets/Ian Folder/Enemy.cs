@@ -62,17 +62,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Explode(bool hurtingTree)
+    protected void Explode(bool hurtingTree)
     {
         Instantiate(explosion);
         if(hurtingTree)
         {
             //Hurt the tree
         }
-    }
-
-    public bool GetIsDead()
-    {
-        return isDead;
+        Destroy(gameObject);
     }
 }

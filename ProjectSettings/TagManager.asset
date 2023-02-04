@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Ground Tile
   - Node
-  - Wall
   - Enemy
   layers:
   - Default
@@ -17,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
-  - Projectile
+  - 
+  - 
   - 
   - 
   - 

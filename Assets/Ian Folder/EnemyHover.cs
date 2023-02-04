@@ -59,7 +59,7 @@ public class EnemyHover : Enemy
     {
         stateCurrent = HoverStates.Dead;
         base.agent.destination = transform.position;
-        Destroy(gameObject);
+        base.Explode(false);
     }
 
     public override void ChangeHealth(float amount)
