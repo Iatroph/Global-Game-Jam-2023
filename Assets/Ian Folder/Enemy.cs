@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-
     protected NavMeshAgent agent;
 
     protected float maxHealth;
     protected float currentHealth;
+    protected float marchDelay = 0f;
     protected bool isDead;
-    protected float playerDistance;
-    protected Transform player;
 
     protected Animator animator;
+
+    public GameObject tree;
+
+    public GameObject explosion;
 
     protected virtual void Start()
     {
@@ -49,6 +51,23 @@ public class Enemy : MonoBehaviour
         if (amount < 0)
         {
             SendMessage("Flash");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.GetContact(0).otherCollider.gameObject == tree)
+        {
+            Explode(true);
+        }
+    }
+
+    private void Explode(bool hurtingTree)
+    {
+        Instantiate(explosion);
+        if(hurtingTree)
+        {
+            //Hurt the tree
         }
     }
 
