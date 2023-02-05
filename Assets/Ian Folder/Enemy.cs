@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     protected GameObject tree;
 
+    public float damage = 10f;
+
     public GameObject explosion;
     public GameObject currency;
 
@@ -75,7 +77,7 @@ public class Enemy : MonoBehaviour
         Instantiate(explosion);
         if(hurtingTree)
         {
-            //Hurt the tree
+            tree.GetComponent<Tree>().ChangeHealth(damage * -1);
         }
         Destroy(gameObject);
     }
