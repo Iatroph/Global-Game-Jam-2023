@@ -7,6 +7,8 @@ using UnityEngine.AI;
 
 public class PlayerBuild : MonoBehaviour
 {
+    public bool isInBuildMode;
+
     public Camera playerCam;
 
     public GameObject wallObject;
@@ -44,6 +46,7 @@ public class PlayerBuild : MonoBehaviour
 
         if(Input.GetMouseButton(1))
         {
+            isInBuildMode = true;
             ShowWallOutline();
             if (Input.GetMouseButtonDown(0))
             {
@@ -52,6 +55,7 @@ public class PlayerBuild : MonoBehaviour
         }
         else
         {
+            isInBuildMode = false;
             hologram.ToggleMeshRenderer(false);
         }
 

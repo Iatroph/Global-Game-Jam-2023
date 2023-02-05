@@ -28,12 +28,11 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         isDead = false;
 
-        initSpeed = agent.speed;
 
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         aSource = GetComponent<AudioSource>();
-
+        initSpeed = agent.speed;
         tree = GameObject.Find("THE LAST TREE");
 
         //Loop hover sfx
