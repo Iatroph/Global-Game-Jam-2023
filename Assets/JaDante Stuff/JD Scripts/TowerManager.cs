@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+// import, axis conversion, reset
 public class TowerManager : MonoBehaviour
 {
     // raycast to certain tiles to build walls/turrents
     [Header("Tower Prefab/Prices")]
     [SerializeField] public TowerStruct[] towers;
+    public float towerCostLevel1, towerCostLevel2, towerCostLevel3;
 
     public Camera playerCam;
 
@@ -33,28 +35,41 @@ public class TowerManager : MonoBehaviour
                     //Debug.Log("running");
                     if (hit.point != null)
                     {
-                        if (hit.transform.CompareTag("Wall") && hit.transform.childCount == 2 && currentPoints > towers[index].towerCostLevel1)
+                        if (hit.transform.CompareTag("Wall") && hit.transform.childCount == 2 && currentPoints > towerCostLevel1)
                         {
                             //Debug.Log(hit.transform.name);
                             //Debug.DrawLine(playerCam.transform.position, hit.point, Color.red, 2f);
-                            currentPoints -= towers[index].towerCostLevel1;
+                            currentPoints -= towerCostLevel1;
                             tower = Instantiate(towers[index].tower, hit.transform);
                             endVal = hit.transform.position.y + 2;
                             tower.transform.DOMoveY(endVal, 1);
+                            tower.GetComponent<Turret>().turretLevel = 1;
                             //towers[0].towerTransparent.SetActive(false);
                             Destroy(towerOutline);
                             outlineDrawn = false;
                             allowOutline = false;
                             Invoke(nameof(ResetOutline), 0.2f);
                         }
-                        else if (hit.transform.CompareTag("Wall") && currentPoints > towers[index].towerCostLevel2)
+                        else if (hit.transform.CompareTag("Wall") && hit.transform.childCount == 3 && hit.transform.GetChild(2).GetComponent<Turret>().turretLevel == 1 && currentPoints > towerCostLevel2)
                         {
-                            currentPoints -= towers[index].towerCostLevel2;
+                            currentPoints -= towerCostLevel2;
                             tower = hit.transform.GetChild(2).gameObject;
+                            Destroy(tower);
+                            tower = Instantiate(towers[index].tower2, hit.transform);
+                            endVal = hit.transform.position.y + 2;
+                            tower.transform.DOMoveY(endVal, 1);
                             tower.GetComponent<Turret>().turretLevel = 2;
-                            tower = null;
                         }
-
+                        else if(hit.transform.CompareTag("Wall") && hit.transform.childCount == 3 && hit.transform.GetChild(2).GetComponent<Turret>().turretLevel == 2 && currentPoints > towerCostLevel3)
+                        {
+                            currentPoints -= towerCostLevel3;
+                            tower = hit.transform.GetChild(2).gameObject;
+                            Destroy(tower);
+                            tower = Instantiate(towers[index].tower3, hit.transform);
+                            endVal = hit.transform.position.y + 2;
+                            tower.transform.DOMoveY(endVal, 1);
+                            tower.GetComponent<Turret>().turretLevel = 3;
+                        }
                     }
                 }
 

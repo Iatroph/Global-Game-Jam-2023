@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SapTurret : Turret
 {
+    public float duration, slowPercentage;
     public Vector3 center;
-    public Transform projectileSpawn;
+    public Transform projectileSpawn1, projectileSpawn2, projectileSpawn3;
     public float attackRange;
     public LayerMask enemyLayer;
     public GameObject sap;
@@ -15,11 +16,11 @@ public class SapTurret : Turret
     // change mesh for upgrade
     private void Start()
     {
-        turretLevel = 1;
     }
     private void Update()
     {
-        turretText.text = turretLevel.ToString();
+        //turretText.text = turretLevel.ToString();
+
         Collider[] inRange = Physics.OverlapSphere(center, attackRange, enemyLayer.value);
 
         if (inRange.Length > 0)
@@ -53,15 +54,58 @@ public class SapTurret : Turret
 
         if (projectile == null && turretLevel == 1)
         {
-            projectile = Instantiate(sap, projectileSpawn);
+            projectile = Instantiate(sap, projectileSpawn1);
+            projectile.GetComponent<SapScript>().target = closest.transform;
             projectile.GetComponent<SapScript>().speed = speedLevel1;
             projectile.GetComponent<SapScript>().damage = damageLevel1;
+            projectile.GetComponent<SapScript>().duration = duration;
+            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage;
+
+            projectile = Instantiate(sap, projectileSpawn2);
+            projectile.GetComponent<SapScript>().target = closest.transform;
+            projectile.GetComponent<SapScript>().speed = speedLevel1;
+            projectile.GetComponent<SapScript>().damage = damageLevel1;
+            projectile.GetComponent<SapScript>().duration = duration;
+            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage;
         }
         else if (projectile == null && turretLevel == 2)
         {
-            projectile = Instantiate(sap, projectileSpawn);
+            projectile = Instantiate(sap, projectileSpawn1);
+            projectile.GetComponent<SapScript>().target = closest.transform;
             projectile.GetComponent<SapScript>().speed = speedLevel2;
             projectile.GetComponent<SapScript>().damage = damageLevel2;
+            projectile.GetComponent<SapScript>().duration = duration;
+            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage;
+
+            projectile = Instantiate(sap, projectileSpawn2);
+            projectile.GetComponent<SapScript>().target = closest.transform;
+            projectile.GetComponent<SapScript>().speed = speedLevel2;
+            projectile.GetComponent<SapScript>().damage = damageLevel2;
+            projectile.GetComponent<SapScript>().duration = duration;
+            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage;
+        }
+        else if (projectile == null && turretLevel == 3)
+        {
+            projectile = Instantiate(sap, projectileSpawn1);
+            projectile.GetComponent<SapScript>().target = closest.transform;
+            projectile.GetComponent<SapScript>().speed = speedLevel3;
+            projectile.GetComponent<SapScript>().damage = damageLevel3;
+            projectile.GetComponent<SapScript>().duration = duration;
+            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage;
+
+            projectile = Instantiate(sap, projectileSpawn2);
+            projectile.GetComponent<SapScript>().target = closest.transform;
+            projectile.GetComponent<SapScript>().speed = speedLevel3;
+            projectile.GetComponent<SapScript>().damage = damageLevel3;
+            projectile.GetComponent<SapScript>().duration = duration;
+            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage;
+
+            projectile = Instantiate(sap, projectileSpawn3);
+            projectile.GetComponent<SapScript>().target = closest.transform;
+            projectile.GetComponent<SapScript>().speed = speedLevel3;
+            projectile.GetComponent<SapScript>().damage = damageLevel3;
+            projectile.GetComponent<SapScript>().duration = duration;
+            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage;
         }
     }
 }

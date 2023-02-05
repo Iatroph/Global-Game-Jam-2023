@@ -7,6 +7,7 @@ public abstract class Turret : MonoBehaviour
 {
     public float damageLevel1, speedLevel1;
     public float damageLevel2, speedLevel2;
+    public float damageLevel3, speedLevel3;
     public float turretLevel;
-    public TextMeshPro turretText;
+    //public TextMeshPro turretText;
 }

@@ -44,7 +44,7 @@ public class PathFindingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(noPathBlocked());
+        //Debug.Log(noPathBlocked());
 
         //if(noPathBlocked())
         //{
