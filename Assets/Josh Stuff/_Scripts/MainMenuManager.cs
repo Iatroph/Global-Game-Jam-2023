@@ -26,7 +26,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        if(SceneManager.GetSceneAt(1) != null)
+        if(SceneManager.GetSceneByBuildIndex(1) != null)
         {
             SceneManager.LoadScene(1);
         }
