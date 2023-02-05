@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public GameObject creditsPanel;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        creditsPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,6 +30,11 @@ public class MainMenuManager : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+    }
+
+    public void ToggleCredits(bool toggle)
+    {
+        creditsPanel.SetActive(toggle);
     }
 
 }
