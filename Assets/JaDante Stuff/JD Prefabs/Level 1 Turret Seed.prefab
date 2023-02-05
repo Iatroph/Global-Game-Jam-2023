@@ -416,11 +416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageLevel1: 10
-  speedLevel1: 5
+  speedLevel1: 10
   damageLevel2: 20
-  speedLevel2: 10
+  speedLevel2: 15
   damageLevel3: 30
-  speedLevel3: 15
+  speedLevel3: 20
   turretLevel: 0
   turretIndex: 0
   multiplier: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   projectileSpawn1: {fileID: 5680452807437535246}
   projectileSpawn2: {fileID: 5422060457899645203}
   projectileSpawn3: {fileID: 0}
-  attackRange: 10
+  attackRange: 50
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
