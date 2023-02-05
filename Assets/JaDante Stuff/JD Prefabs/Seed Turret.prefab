@@ -407,7 +407,7 @@ MonoBehaviour:
   attackRange: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   seed: {fileID: 8426074993190997591, guid: fe0bcfaa17c343e4cb5505d0e55cec32, type: 3}
 --- !u!1 &8904828945205553114
 GameObject:

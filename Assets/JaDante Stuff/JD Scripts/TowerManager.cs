@@ -24,103 +24,114 @@ public class TowerManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKey(KeyCode.Mouse1))
         {
-            if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, 8f))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                if (hit.point != null)
+                if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, 8f))
                 {
-                    if (hit.transform.CompareTag("Wall") && hit.transform.childCount == 0 && currentPoints > towers[index].towerCostLevel1)
+                    //Debug.Log("running");
+                    if (hit.point != null)
                     {
-                        //Debug.Log(hit.transform.name);
-                        //Debug.DrawLine(playerCam.transform.position, hit.point, Color.red, 2f);
-                        currentPoints -= towers[index].towerCostLevel1;
-                        tower = Instantiate(towers[index].tower, hit.transform);
-                        endVal = hit.transform.position.y + 2;
-                        tower.transform.DOMoveY(endVal, 1);
+                        if (hit.transform.CompareTag("Wall") && hit.transform.childCount == 2 && currentPoints > towers[index].towerCostLevel1)
+                        {
+                            //Debug.Log(hit.transform.name);
+                            //Debug.DrawLine(playerCam.transform.position, hit.point, Color.red, 2f);
+                            currentPoints -= towers[index].towerCostLevel1;
+                            tower = Instantiate(towers[index].tower, hit.transform);
+                            endVal = hit.transform.position.y + 2;
+                            tower.transform.DOMoveY(endVal, 1);
+                            //towers[0].towerTransparent.SetActive(false);
+                            Destroy(towerOutline);
+                            outlineDrawn = false;
+                            allowOutline = false;
+                            Invoke(nameof(ResetOutline), 0.2f);
+                        }
+                        else if (hit.transform.CompareTag("Wall") && currentPoints > towers[index].towerCostLevel2)
+                        {
+                            currentPoints -= towers[index].towerCostLevel2;
+                            tower = hit.transform.GetChild(2).gameObject;
+                            tower.GetComponent<Turret>().turretLevel = 2;
+                            tower = null;
+                        }
+
+                    }
+                }
+
+
+            }
+
+            if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit2, 8f) && allowOutline)
+            {
+                if (hit2.point != null && hit2.transform.childCount == 2)
+                {
+                    if (hit2.transform.CompareTag("Wall") && !outlineDrawn)
+                    {
+                        currentWall = hit2.transform.gameObject;
+                        towerOutline = Instantiate(towers[index].towerTransparent);
+                        towerOutline.transform.position = hit2.transform.position + new Vector3(0, 2, 0);
+                        towerOutline.SetActive(true);
+                        outlineDrawn = true;
+                    }
+                    else if (hit2.transform.gameObject != currentWall || redrawOutline)
+                    {
                         //towers[0].towerTransparent.SetActive(false);
                         Destroy(towerOutline);
                         outlineDrawn = false;
-                        allowOutline = false;
-                        Invoke(nameof(ResetOutline), 0.2f);
+                        redrawOutline = false;
                     }
-                    else if(hit.transform.CompareTag("Wall") && currentPoints > towers[index].towerCostLevel2)
-                    {
-                        currentPoints -= towers[index].towerCostLevel2;
-                        tower = hit.transform.GetChild(0).gameObject;
-                        tower.GetComponent<Turret>().turretLevel = 2;
-                        tower = null;
-                    }
-
                 }
             }
-
-           
-        }
-
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit2, 8f) && allowOutline)
-        {
-            if (hit2.point != null && hit2.transform.childCount == 0)
+            else
             {
-                if (hit2.transform.CompareTag("Wall") && !outlineDrawn)
+                //towers[0].towerTransparent.SetActive(false);
+                Destroy(towerOutline);
+                outlineDrawn = false;
+            }
+
+            if (outlineDrawn)
+            {
+                if (Input.GetKeyDown(KeyCode.Q) || Input.GetAxis("Mouse ScrollWheel") < 0)
                 {
-                    currentWall = hit2.transform.gameObject;
-                    towerOutline = Instantiate(towers[index].towerTransparent);
-                    towerOutline.transform.position = hit2.transform.position + new Vector3(0, 2, 0);
-                    towerOutline.SetActive(true);
-                    outlineDrawn = true;
+                    if (index == 0)
+                    {
+                        index = towers.Length - 1;
+                    }
+                    else
+                    {
+                        index--;
+                    }
+
+                    redrawOutline = true;
                 }
-                else if(hit2.transform.gameObject != currentWall || redrawOutline)
+
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetAxis("Mouse ScrollWheel") > 0)
                 {
-                    //towers[0].towerTransparent.SetActive(false);
-                    Destroy(towerOutline);
-                    outlineDrawn = false;
-                    redrawOutline = false;
+                    if (index == towers.Length - 1)
+                    {
+                        index = 0;
+                    }
+                    else
+                    {
+                        index++;
+                    }
+
+                    redrawOutline = true;
                 }
             }
         }
         else
         {
-            //towers[0].towerTransparent.SetActive(false);
             Destroy(towerOutline);
+            redrawOutline = false;
             outlineDrawn = false;
         }
 
-        if(tower != null && tower.transform.position.y == endVal)
+        if (tower != null && tower.transform.position.y == endVal)
         {
             tower.GetComponent<Turret>().enabled = true;
             tower = null;
             endVal = 0;
-        }
-        if(outlineDrawn)
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if(index == 0)
-                {
-                    index = towers.Length - 1;
-                }
-                else
-                {
-                    index--;
-                }
-
-                redrawOutline = true;
-            }
-
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                if(index == towers.Length - 1)
-                {
-                    index = 0;
-                }
-                else
-                {
-                    index++;
-                }
-
-                redrawOutline = true;
-            }
         }
     }
     public void ResetOutline()
