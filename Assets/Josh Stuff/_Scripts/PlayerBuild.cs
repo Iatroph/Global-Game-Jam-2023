@@ -57,6 +57,7 @@ public class PlayerBuild : MonoBehaviour
         {
             isInBuildMode = false;
             hologram.ToggleMeshRenderer(false);
+            hologram.transform.position = new Vector3(0, -2f, 0);
         }
 
     }
