@@ -16,9 +16,11 @@ public class PineconeTurret : Turret
     // change mesh for upgrade
     private void Start()
     {
+        base.Start();
     }
     private void Update()
     {
+        base.Update();
         //turretText.text = turretLevel.ToString();
 
         Collider[] inRange = Physics.OverlapSphere(center, attackRange, enemyLayer.value);
@@ -56,22 +58,22 @@ public class PineconeTurret : Turret
         {
             projectile = Instantiate(pinecone, projectileSpawn1);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
-            projectile.GetComponent<PineconeScript>().speed = speedLevel1;
-            projectile.GetComponent<PineconeScript>().damage = damageLevel1;
+            projectile.GetComponent<PineconeScript>().speed = speedLevel1 * base.multiplier;
+            projectile.GetComponent<PineconeScript>().damage = damageLevel1 * base.multiplier;
             projectile.GetComponent<PineconeScript>().aoeRadius = aoeRadius;
 
             projectile = Instantiate(pinecone, projectileSpawn2);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
-            projectile.GetComponent<PineconeScript>().speed = speedLevel1;
-            projectile.GetComponent<PineconeScript>().damage = damageLevel1;
+            projectile.GetComponent<PineconeScript>().speed = speedLevel1 * base.multiplier;
+            projectile.GetComponent<PineconeScript>().damage = damageLevel1 * base.multiplier;
             projectile.GetComponent<PineconeScript>().aoeRadius = aoeRadius;
         }
         else if (projectile == null && turretLevel == 2)
         {
             projectile = Instantiate(pinecone, projectileSpawn1);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
-            projectile.GetComponent<PineconeScript>().speed = speedLevel2;
-            projectile.GetComponent<PineconeScript>().damage = damageLevel2;
+            projectile.GetComponent<PineconeScript>().speed = speedLevel2 b;
+            projectile.GetComponent<PineconeScript>().damage = damageLevel2 * base.multiplier;
             projectile.GetComponent<PineconeScript>().aoeRadius = aoeRadius;
 
             projectile = Instantiate(pinecone, projectileSpawn2);
