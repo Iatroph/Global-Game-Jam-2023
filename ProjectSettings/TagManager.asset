@@ -8,6 +8,7 @@ TagManager:
   - Node
   - Enemy
   - Wall
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Projectile
   - Enemy
   - Ground
-  - 
+  - Pickup
   - 
   - 
   - 
