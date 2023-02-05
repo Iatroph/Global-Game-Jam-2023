@@ -5,10 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu instance;
+
     public GameObject pauseCanvas;
     bool isGamePaused = false;
     [HideInInspector]
     public bool canPause = true;
+
+    public bool canUseMouse = true;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         pauseCanvas.SetActive(true);
         Time.timeScale = 0;
+        canUseMouse= false;
 
     }
 
@@ -48,6 +58,8 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         pauseCanvas.SetActive(false);
         Time.timeScale = 1;
+        canUseMouse = true;
+
     }
 
     public void ReturnToMainMenu()

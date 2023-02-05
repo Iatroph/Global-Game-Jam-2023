@@ -64,7 +64,7 @@ MonoBehaviour:
   projectileSpawn1: {fileID: 160147837891221722}
   projectileSpawn2: {fileID: 160147838445618859}
   projectileSpawn3: {fileID: 0}
-  attackRange: 100
+  attackRange: 20
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
