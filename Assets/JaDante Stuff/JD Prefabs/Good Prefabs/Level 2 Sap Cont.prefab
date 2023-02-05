@@ -53,6 +53,9 @@ MonoBehaviour:
   speedLevel3: 15
   turretLevel: 0
   turretIndex: 1
+  shootClips:
+  - {fileID: 8300000, guid: d0ce2e018dcd395489a99a8531e2f170, type: 3}
+  - {fileID: 8300000, guid: e73da3f2e13f3b1408f35176ce6ad353, type: 3}
   multiplier: 0
   duration1: 0
   duration2: 0
