@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1678414556135217995}
   - component: {fileID: 3507770213180911494}
   - component: {fileID: 3507770213180911495}
+  - component: {fileID: -6980183972680745215}
   m_Layer: 9
   m_Name: Battery
   m_TagString: Pickup
@@ -115,3 +116,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6980183972680745215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885539335026735774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bf3e81bfb70114b82f61fb10267173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: 5

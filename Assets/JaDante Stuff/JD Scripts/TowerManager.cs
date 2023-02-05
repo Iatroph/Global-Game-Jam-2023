@@ -154,12 +154,12 @@ public class TowerManager : MonoBehaviour
             outlineDrawn = false;
         }
 
-        if (tower != null && tower.transform.position.y == endVal)
-        {
-            tower.GetComponent<Turret>().enabled = true;
-            tower = null;
-            endVal = 0;
-        }
+        //if (tower != null && tower.transform.position.y == endVal)
+        //{
+        //    tower.GetComponent<Turret>().enabled = true;
+        //    tower = null;
+        //    endVal = 0;
+        //}
     }
     public void ResetOutline()
     {
