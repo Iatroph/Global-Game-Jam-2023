@@ -13,6 +13,15 @@ public class SapScript : MonoBehaviour
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<Enemy>().ChangeHealth(-damage);
+            Destroy(gameObject);
+        }
+    }
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -20,4 +29,5 @@ public class SapScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 }
