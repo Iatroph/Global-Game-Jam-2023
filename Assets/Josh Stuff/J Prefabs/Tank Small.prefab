@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce98c90659857d44d96ebd07f0e137b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 130
   aClips:
   - {fileID: 8300000, guid: 8ddc9da7e919b5a4b8e97e592b2a57ee, type: 3}
   - {fileID: 8300000, guid: 37e4e3f83b2a36c428c54692277f8249, type: 3}
@@ -118,7 +118,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 5.25
-  m_Speed: 7
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

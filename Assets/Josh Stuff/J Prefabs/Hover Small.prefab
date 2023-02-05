@@ -98,7 +98,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 6.93
-  m_Speed: 10
+  m_Speed: 11
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb369c7c756b7b4889b659074155662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 70
   aClips:
   - {fileID: 8300000, guid: 8ddc9da7e919b5a4b8e97e592b2a57ee, type: 3}
   - {fileID: 8300000, guid: 37e4e3f83b2a36c428c54692277f8249, type: 3}

@@ -431,11 +431,19 @@ MonoBehaviour:
   speedLevel1: 10
   damageLevel2: 20
   speedLevel2: 20
+  damageLevel3: 0
+  speedLevel3: 0
   turretLevel: 0
-  turretText: {fileID: 5880125075874045958}
+  turretIndex: 0
+  multiplier: 0
+  aoeRadius1: 0
+  aoeRadius2: 0
+  aoeRadius3: 0
   center: {x: 0, y: 0, z: 0}
-  projectileSpawn: {fileID: 5474628997888337342}
-  attackRange: 100
+  projectileSpawn1: {fileID: 0}
+  projectileSpawn2: {fileID: 0}
+  projectileSpawn3: {fileID: 0}
+  attackRange: 15
   enemyLayer:
     serializedVersion: 2
     m_Bits: 384
