@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
 
     protected void Explode(bool hurtingTree)
     {
-        Instantiate(explosion);
+        Instantiate(explosion, transform.position, Quaternion.identity);
         if(hurtingTree)
         {
             tree.GetComponent<Tree>().ChangeHealth(damage * -1);
@@ -103,6 +103,6 @@ public class Enemy : MonoBehaviour
 
     protected void SpawnCurrency()
     {
-        Instantiate(currency);
+        Instantiate(currency, transform.position, Quaternion.identity);
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine;
 public class Wave
 {
     public Group[] groups;
-    public float groupInterval;
 }
 
 [System.Serializable]

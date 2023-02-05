@@ -7,6 +7,12 @@ public class MainMenuManager : MonoBehaviour
 {
     public GameObject creditsPanel;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

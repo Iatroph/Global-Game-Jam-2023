@@ -104,6 +104,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8ddc9da7e919b5a4b8e97e592b2a57ee, type: 3}
   - {fileID: 8300000, guid: 37e4e3f83b2a36c428c54692277f8249, type: 3}
   - {fileID: 8300000, guid: 8334c1d00a40ec145b846a2bd74fe414, type: 3}
+  damage: 10
   explosion: {fileID: 8582961250641067295, guid: bfbd1493c3426554bbbd0e99e2ffa17e, type: 3}
   currency: {fileID: 885539335026735774, guid: 35beb57dbdd9d31419b8b029da464b13, type: 3}
   ps: {fileID: 0}
@@ -119,7 +120,7 @@ NavMeshAgent:
   m_Radius: 6.3033504
   m_Speed: 2
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1

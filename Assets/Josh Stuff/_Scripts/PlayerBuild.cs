@@ -44,7 +44,7 @@ public class PlayerBuild : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetMouseButton(1))
+        if(Input.GetMouseButton(1) && WaveManager.instance.currentPhase == WaveManager.Phase.Prep)
         {
             isInBuildMode = true;
             ShowWallOutline();
