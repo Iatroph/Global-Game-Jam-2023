@@ -456,10 +456,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Missile
       objectReference: {fileID: 0}
-    - target: {fileID: 1877726351975290996, guid: 72924b86f0dacae4983b4809a323a3f0, type: 3}
-      propertyPath: speed
-      value: 1.18
-      objectReference: {fileID: 0}
     - target: {fileID: 1877726351975290997, guid: 72924b86f0dacae4983b4809a323a3f0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -470,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1877726351975290997, guid: 72924b86f0dacae4983b4809a323a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.33
+      value: 1.462
       objectReference: {fileID: 0}
     - target: {fileID: 1877726351975290997, guid: 72924b86f0dacae4983b4809a323a3f0, type: 3}
       propertyPath: m_LocalPosition.z
