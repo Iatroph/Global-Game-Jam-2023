@@ -12,6 +12,8 @@ public class MeleeAttack : MonoBehaviour
 
     bool canMelee;
 
+    public GameObject damageParticle;
+
     private void Awake()
     {
         playerBuild = GetComponent<PlayerBuild>();
@@ -46,6 +48,7 @@ public class MeleeAttack : MonoBehaviour
                 if (hit.transform.GetComponent<Enemy>())
                 {
                     hit.transform.GetComponent<Enemy>().ChangeHealth(-meleeDamage);
+                    GameObject sparks = Instantiate(damageParticle, hit.point, Quaternion.identity);
                 }
                 Debug.Log(hit.transform.name);
             }
