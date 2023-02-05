@@ -59,6 +59,7 @@ public class EnemyTank : Enemy
     {
         stateCurrent = TankStates.Dead;
         base.agent.destination = transform.position;
+        base.SpawnCurrency();
         base.Explode(false);
     }
 

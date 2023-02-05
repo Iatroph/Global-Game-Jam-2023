@@ -59,6 +59,7 @@ public class EnemyHover : Enemy
     {
         stateCurrent = HoverStates.Dead;
         base.agent.destination = transform.position;
+        base.SpawnCurrency();
         base.Explode(false);
     }
 

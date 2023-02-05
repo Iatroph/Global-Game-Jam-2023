@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     protected float maxHealth;
     protected float currentHealth;
     protected float marchDelay = 0f;
+    protected float initSpeed;
     protected bool isDead;
 
     protected Animator animator;
@@ -19,12 +20,15 @@ public class Enemy : MonoBehaviour
     protected GameObject tree;
 
     public GameObject explosion;
+    public GameObject currency;
 
     protected virtual void Start()
     {
         maxHealth = 100f;
         currentHealth = maxHealth;
         isDead = false;
+
+        initSpeed = agent.speed;
 
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -80,5 +84,29 @@ public class Enemy : MonoBehaviour
             //Hurt the tree
         }
         Destroy(gameObject);
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public IEnumerator SlowDown(float duration, float modifier)
+    {
+        agent.speed = initSpeed * modifier;
+        float elapsedTime = 0f;
+
+        while(elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    protected void SpawnCurrency()
+    {
+        Instantiate(currency);
     }
 }
