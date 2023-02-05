@@ -54,12 +54,14 @@ public class SeedTurret : Turret
 
         if(projectile == null && turretLevel == 1)
         {
-            projectile = Instantiate(seed, projectileSpawn1);
+            //projectile = Instantiate(seed, projectileSpawn1);
+            projectile = Instantiate(seed, projectileSpawn1.position, Quaternion.identity);
             projectile.GetComponent<SeedScript>().target = closest.transform;
             projectile.GetComponent<SeedScript>().speed = speedLevel1;
             projectile.GetComponent<SeedScript>().damage = damageLevel1;
 
-            projectile = Instantiate(seed, projectileSpawn2);
+            //projectile = Instantiate(seed, projectileSpawn2);
+            projectile = Instantiate(seed, projectileSpawn2.position, Quaternion.identity);
             projectile.GetComponent<SeedScript>().target = closest.transform;
             projectile.GetComponent<SeedScript>().speed = speedLevel1;
             projectile.GetComponent<SeedScript>().damage = damageLevel1;

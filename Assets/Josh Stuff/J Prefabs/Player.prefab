@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 7523733513397552152}
   - component: {fileID: 7523733513397552154}
   - component: {fileID: 7523733513397552155}
-  - component: {fileID: -1216848484629972846}
   - component: {fileID: 1379782336}
+  - component: {fileID: 1990105034}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -215,26 +215,6 @@ MonoBehaviour:
   speedText: {fileID: 0}
   groundedText: {fileID: 0}
   slopeText: {fileID: 0}
---- !u!114 &-1216848484629972846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523733513397552165}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a6f714e33496e44bc8eda01a0f489d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 0}
-  wallObject: {fileID: 0}
-  wallOutlineObject: {fileID: 0}
-  canBuild: 0
-  pathWouldBeBlocked: 0
-  wallRiseSpeed: 0.8
-  minWallHeight: 1.9
-  maxWallHeight: 2.1
 --- !u!114 &1379782336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,14 +227,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a6f714e33496e44bc8eda01a0f489d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInBuildMode: 0
   playerCam: {fileID: 7523733513665462621}
   wallObject: {fileID: 8836532753326288832, guid: 367b9e7230f18034f8943a23d17f5d6f, type: 3}
   wallOutlineObject: {fileID: 0}
   canBuild: 0
   pathWouldBeBlocked: 0
+  ignore:
+    serializedVersion: 2
+    m_Bits: 256
   wallRiseSpeed: 0.5
   minWallHeight: 1.4
   maxWallHeight: 1.6
+--- !u!114 &1990105034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7523733513397552165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afca63b091e6ad6418960572ca3283c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeDamage: 20
+  meleeDelay: 0.2
+  meleeCooldown: 0.2
+  damageParticle: {fileID: 9057438573920839828, guid: 9d02ba78e5653c742a992a8c0755f647, type: 3}
 --- !u!1 &7523733513665462619
 GameObject:
   m_ObjectHideFlags: 0
