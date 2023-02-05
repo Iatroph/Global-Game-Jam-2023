@@ -410,6 +410,7 @@ MonoBehaviour:
   damageLevel3: 30
   speedLevel3: 15
   turretLevel: 0
+  turretIndex: 2
   center: {x: 0, y: 0, z: 0}
   projectileSpawn1: {fileID: 912517870910564611}
   projectileSpawn2: {fileID: 5161304969974881722}
@@ -417,7 +418,7 @@ MonoBehaviour:
   attackRange: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   seed: {fileID: 8426074993190997591, guid: fe0bcfaa17c343e4cb5505d0e55cec32, type: 3}
 --- !u!1 &7334006131062088206
 GameObject:

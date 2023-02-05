@@ -55,7 +55,7 @@ public class TowerManager : MonoBehaviour
                             currentPoints -= towerCostLevel2;
                             tower = hit.transform.GetChild(2).gameObject;
                             Destroy(tower);
-                            tower = Instantiate(towers[index].tower2, hit.transform);
+                            tower = Instantiate(towers[hit.transform.GetChild(2).GetComponent<Turret>().turretIndex].tower2, hit.transform);
                             endVal = hit.transform.position.y + 2;
                             tower.transform.DOMoveY(endVal, 1);
                             tower.GetComponent<Turret>().turretLevel = 2;
@@ -65,7 +65,7 @@ public class TowerManager : MonoBehaviour
                             currentPoints -= towerCostLevel3;
                             tower = hit.transform.GetChild(2).gameObject;
                             Destroy(tower);
-                            tower = Instantiate(towers[index].tower3, hit.transform);
+                            tower = Instantiate(towers[hit.transform.GetChild(2).GetComponent<Turret>().turretIndex].tower3, hit.transform);
                             endVal = hit.transform.position.y + 2;
                             tower.transform.DOMoveY(endVal, 1);
                             tower.GetComponent<Turret>().turretLevel = 3;

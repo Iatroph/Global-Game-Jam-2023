@@ -281,6 +281,7 @@ MonoBehaviour:
   damageLevel3: 30
   speedLevel3: 15
   turretLevel: 0
+  turretIndex: 2
   aoeRadius: 0
   center: {x: 0, y: 0, z: 0}
   projectileSpawn1: {fileID: 6696110583604756083}
@@ -289,7 +290,7 @@ MonoBehaviour:
   attackRange: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   pinecone: {fileID: 6956380182628270085, guid: 3d46e608e033233429f6e904f9f32e78, type: 3}
 --- !u!1 &6448331123550467813
 GameObject:

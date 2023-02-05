@@ -348,6 +348,7 @@ MonoBehaviour:
   damageLevel3: 30
   speedLevel3: 15
   turretLevel: 0
+  turretIndex: 1
   duration: 0
   slowPercentage: 0
   center: {x: 0, y: 0, z: 0}
@@ -357,7 +358,7 @@ MonoBehaviour:
   attackRange: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   sap: {fileID: 4647162244772482782, guid: b7038e9719d2cd644be969fc2fe3ff45, type: 3}
 --- !u!1 &6628528346362779695
 GameObject:
