@@ -282,7 +282,10 @@ MonoBehaviour:
   speedLevel3: 15
   turretLevel: 0
   turretIndex: 2
-  aoeRadius: 0
+  multiplier: 0
+  aoeRadius1: 0
+  aoeRadius2: 0
+  aoeRadius3: 0
   center: {x: 0, y: 0, z: 0}
   projectileSpawn1: {fileID: 6696110583604756083}
   projectileSpawn2: {fileID: 2895460026896414955}
