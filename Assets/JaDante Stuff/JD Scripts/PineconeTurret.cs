@@ -58,13 +58,13 @@ public class PineconeTurret : Turret
 
         if (projectile == null && turretLevel == 1)
         {
-            projectile = Instantiate(pinecone, projectileSpawn1);
+            projectile = Instantiate(pinecone, projectileSpawn1.position, Quaternion.identity);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
             projectile.GetComponent<PineconeScript>().speed = speedLevel1 * base.multiplier;
             projectile.GetComponent<PineconeScript>().damage = damageLevel1 * base.multiplier;
             projectile.GetComponent<PineconeScript>().damageRange = aoeRadius1;
 
-            projectile = Instantiate(pinecone, projectileSpawn2);
+            projectile = Instantiate(pinecone, projectileSpawn2.position, Quaternion.identity);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
             projectile.GetComponent<PineconeScript>().speed = speedLevel1 * base.multiplier;
             projectile.GetComponent<PineconeScript>().damage = damageLevel1 * base.multiplier;
@@ -72,13 +72,13 @@ public class PineconeTurret : Turret
         }
         else if (projectile == null && turretLevel == 2)
         {
-            projectile = Instantiate(pinecone, projectileSpawn1);
+            projectile = Instantiate(pinecone, projectileSpawn1.position, Quaternion.identity);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
             projectile.GetComponent<PineconeScript>().speed = speedLevel2;
             projectile.GetComponent<PineconeScript>().damage = damageLevel2 * base.multiplier;
             projectile.GetComponent<PineconeScript>().damageRange = aoeRadius2;
 
-            projectile = Instantiate(pinecone, projectileSpawn2);
+            projectile = Instantiate(pinecone, projectileSpawn2.position, Quaternion.identity);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
             projectile.GetComponent<PineconeScript>().speed = speedLevel2;
             projectile.GetComponent<PineconeScript>().damage = damageLevel2;
@@ -86,19 +86,19 @@ public class PineconeTurret : Turret
         }
         else if (projectile == null && turretLevel == 3)
         {
-            projectile = Instantiate(pinecone, projectileSpawn1);
+            projectile = Instantiate(pinecone, projectileSpawn1.position, Quaternion.identity);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
             projectile.GetComponent<PineconeScript>().speed = speedLevel3;
             projectile.GetComponent<PineconeScript>().damage = damageLevel3;
             projectile.GetComponent<PineconeScript>().damageRange = aoeRadius3;
 
-            projectile = Instantiate(pinecone, projectileSpawn2);
+            projectile = Instantiate(pinecone, projectileSpawn2.position, Quaternion.identity);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
             projectile.GetComponent<PineconeScript>().speed = speedLevel3;
             projectile.GetComponent<PineconeScript>().damage = damageLevel3;
             projectile.GetComponent<PineconeScript>().damageRange = aoeRadius3;
 
-            projectile = Instantiate(pinecone, projectileSpawn3);
+            projectile = Instantiate(pinecone, projectileSpawn3.position, Quaternion.identity);
             projectile.GetComponent<PineconeScript>().target = closest.transform;
             projectile.GetComponent<PineconeScript>().speed = speedLevel3;
             projectile.GetComponent<PineconeScript>().damage = damageLevel3;
