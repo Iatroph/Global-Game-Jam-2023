@@ -5,7 +5,8 @@ using UnityEngine;
 public class SapScript : MonoBehaviour
 {
     public float damage, speed;
-    public float duration, slowPercentage;
+    public float duration;
+    public float slowPercentage;
     public Transform target;
 
     private void Start()
@@ -15,7 +16,15 @@ public class SapScript : MonoBehaviour
     {
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * 0.01f);
+        if (target != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * 1.5f * Time.deltaTime);
+        }
+
+        if (target == null)
+        {
+            Destroy(gameObject);
+        }
     }
     /*
     private void OnTriggerEnter(Collider other)
@@ -39,6 +48,9 @@ public class SapScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            collision.gameObject.GetComponent<Enemy>().ChangeHealth(-damage);
+            // Slow all enemies except flying. dont do effect on things that include hover
+            collision.gameObject.GetComponent<Enemy>().SlowDown(duration, slowPercentage);
             Destroy(gameObject);
         }
     }

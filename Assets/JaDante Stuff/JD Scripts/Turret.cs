@@ -10,5 +10,36 @@ public abstract class Turret : MonoBehaviour
     public float damageLevel3, speedLevel3;
     public float turretLevel;
     public int turretIndex;
+
+    private Tree tree;
+    public float multiplier;
     //public TextMeshPro turretText;
+
+    protected virtual void Start()
+    {
+        tree = GameObject.Find("THE LAST TREE").GetComponent<Tree>();
+    }
+
+    protected virtual void Update()
+    {
+        multiplier = tree.plantMultiplier;
+    }
+
+    protected virtual Collider FindLowest(Collider[] inRange)
+    {
+        Collider lowest = inRange[0];
+        float leastHealth = inRange[0].GetComponent<Enemy>().GetCurrentHealth();
+
+        foreach (Collider collider in inRange)
+        {
+            float temp = Vector3.Distance(collider.gameObject.transform.position, gameObject.transform.position);
+            if (temp < leastHealth)
+            {
+                temp = leastHealth;
+                lowest = collider;
+            }
+        }
+
+        return lowest;
+    }
 }
