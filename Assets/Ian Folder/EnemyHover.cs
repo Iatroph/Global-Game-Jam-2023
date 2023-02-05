@@ -5,8 +5,6 @@ public class EnemyHover : Enemy
 {
     private HoverStates stateCurrent = HoverStates.Idle;
 
-    private ParticleSystem ps;
-
     public enum HoverStates
     {
         Idle = 0,
@@ -18,7 +16,6 @@ public class EnemyHover : Enemy
     protected override void Start()
     {
         base.Start();
-        ps = GetComponentInChildren<ParticleSystem>();
         StateIdleEnter();
     }
 

@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     protected NavMeshAgent agent;
     protected AudioSource aSource;
 
-    protected float maxHealth;
+    public float maxHealth;
     protected float currentHealth;
     protected float marchDelay = 0f;
     protected float initSpeed;

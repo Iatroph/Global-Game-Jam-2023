@@ -5,8 +5,6 @@ public class EnemyTank : Enemy
 {
     private TankStates stateCurrent = TankStates.Idle;
 
-    public ParticleSystem ps;
-
     public enum TankStates
     {
         Idle = 0,
@@ -18,7 +16,6 @@ public class EnemyTank : Enemy
     protected override void Start()
     {
         base.Start();
-        ps = GetComponentInChildren<ParticleSystem>();
         StateIdleEnter();
     }
 
