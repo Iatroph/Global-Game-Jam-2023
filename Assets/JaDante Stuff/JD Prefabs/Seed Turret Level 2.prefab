@@ -317,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4048381504854196154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.685, y: 1.533, z: 3.917}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -404,13 +404,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageLevel1: 10
-  speedLevel1: 10
+  speedLevel1: 5
+  damageLevel2: 20
+  speedLevel2: 10
+  damageLevel3: 30
+  speedLevel3: 15
+  turretLevel: 0
+  turretIndex: 2
   center: {x: 0, y: 0, z: 0}
-  projectileSpawn: {fileID: 912517870910564611}
+  projectileSpawn1: {fileID: 912517870910564611}
+  projectileSpawn2: {fileID: 5161304969974881722}
+  projectileSpawn3: {fileID: 4211253489238023440}
   attackRange: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 128
   seed: {fileID: 8426074993190997591, guid: fe0bcfaa17c343e4cb5505d0e55cec32, type: 3}
 --- !u!1 &7334006131062088206
 GameObject:

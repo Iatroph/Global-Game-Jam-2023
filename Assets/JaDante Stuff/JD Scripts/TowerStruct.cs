@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public struct TowerStruct 
 {
-    public GameObject tower;
+    public GameObject tower, tower2, tower3;
     public GameObject towerTransparent;
-    public float towerCostLevel1, towerCostLevel2;
 }

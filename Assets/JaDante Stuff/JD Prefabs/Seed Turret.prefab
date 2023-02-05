@@ -397,9 +397,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageLevel1: 10
-  speedLevel1: 10
+  speedLevel1: 5
+  projectileDistance1: 0.1
   damageLevel2: 20
-  speedLevel2: 20
+  speedLevel2: 10
+  projectileDistance2: 0.1
   turretLevel: 0
   turretText: {fileID: 2616071301161707996}
   center: {x: 0, y: 0, z: 0}

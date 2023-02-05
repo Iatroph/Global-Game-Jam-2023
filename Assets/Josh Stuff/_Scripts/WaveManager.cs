@@ -19,11 +19,6 @@ public class WaveManager : MonoBehaviour
 
     private Wave currentWave;
 
-    public Transform doorOneSpawn;
-    public Transform doorTwoSpawn;
-    public Transform doorThreeSpawn;
-    public Transform doorFourSpawn;
-
     public Transform[] doorSpawns;
 
 
@@ -58,7 +53,7 @@ public class WaveManager : MonoBehaviour
             if(prepTimer <= 0)
             {
                 currentPhase = Phase.Attack;
-                StartCoroutine(SpawnWave());
+                //StartCoroutine(SpawnWave());
             }
 
         }
@@ -69,14 +64,14 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SpawnWave()
-    {
-        for(int i = 0; i < currentWave.count;i++)
-        {
-            yield return new WaitForSeconds(currentWave.rate);
-            InstantiateEnemy(currentWave.enemy);
-        }
-    }
+    //public IEnumerator SpawnWave()
+    //{
+    //    for(int i = 0; i < currentWave.count;i++)
+    //    {
+    //        yield return new WaitForSeconds(currentWave.rate);
+    //        InstantiateEnemy(currentWave.enemy);
+    //    }
+    //}
 
     public void InstantiateEnemy(GameObject enemy)
     {
