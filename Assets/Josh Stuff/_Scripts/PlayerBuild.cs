@@ -20,6 +20,8 @@ public class PlayerBuild : MonoBehaviour
 
     public bool pathWouldBeBlocked;
 
+    public LayerMask ignore;
+
     [Header("Wall Parameters")]
     public float wallRiseSpeed = 0.8f;
     public float minWallHeight = 1.9f;
@@ -57,7 +59,7 @@ public class PlayerBuild : MonoBehaviour
 
     public void PlaceWall()
     {
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, 8f))
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, 8f, ~ignore))
         {
             if (hit.point != null)
             {
@@ -81,7 +83,7 @@ public class PlayerBuild : MonoBehaviour
 
     public void ShowWallOutline()
     {
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit2, 8f)/* && allowOutline*/)
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit2, 8f, ~ignore)/* && allowOutline*/)
         {
             if (hit2.point != null)
             {
@@ -100,6 +102,11 @@ public class PlayerBuild : MonoBehaviour
                         hologram.ToggleMeshRenderer(true);
 
                     }
+                }
+                else
+                {
+                    hologram.ToggleMeshRenderer(false);
+
                 }
             }
 
