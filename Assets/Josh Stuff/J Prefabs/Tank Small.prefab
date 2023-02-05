@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1693421888}
   - component: {fileID: 4251334900876642808}
   - component: {fileID: 1693421890}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tank Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
