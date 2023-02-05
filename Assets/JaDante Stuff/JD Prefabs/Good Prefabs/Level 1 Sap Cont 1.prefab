@@ -46,23 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageLevel1: 2
-  speedLevel1: 5
+  speedLevel1: 10
   damageLevel2: 4
-  speedLevel2: 10
+  speedLevel2: 15
   damageLevel3: 8
-  speedLevel3: 15
+  speedLevel3: 20
   turretLevel: 0
   turretIndex: 1
   shootClips:
   - {fileID: 8300000, guid: d0ce2e018dcd395489a99a8531e2f170, type: 3}
   - {fileID: 8300000, guid: e73da3f2e13f3b1408f35176ce6ad353, type: 3}
-  multiplier: 0
-  duration1: 0
-  duration2: 0
-  duration3: 0
-  slowPercentage1: 0
-  slowPercentage2: 0
-  slowPercentage3: 0
+  multiplier: 1
+  duration1: 3
+  duration2: 5
+  duration3: 7
+  slowPercentage1: 0.2
+  slowPercentage2: 0.4
+  slowPercentage3: 0.6
   center: {x: 0, y: 0, z: 0}
   projectileSpawn1: {fileID: 1704513758718736321}
   projectileSpawn2: {fileID: 1704513760401281702}
