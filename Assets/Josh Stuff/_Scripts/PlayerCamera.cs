@@ -37,6 +37,25 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PauseMenu.instance != null)
+        {
+            if(PauseMenu.instance.canUseMouse)
+            {
+                CameraMovement();
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+            CameraMovement();
+        }
+    }
+
+    public void CameraMovement()
+    {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
