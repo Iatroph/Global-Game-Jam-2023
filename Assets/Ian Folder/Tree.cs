@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tree : MonoBehaviour
 {
+    public TMPro.TMP_Text treeText;
     public float maxHealth = 100f;
     [SerializeField]
     private float currentHealth;
@@ -18,6 +20,20 @@ public class Tree : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        if(treeText != null)
+        {
+            treeText.text = "Tree Health\n" + currentHealth;
+
+        }
+
+        if(currentHealth <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void PurchaseGlobalUpgrade()
