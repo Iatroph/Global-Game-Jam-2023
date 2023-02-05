@@ -60,11 +60,6 @@ public class Enemy : MonoBehaviour
             currentHealth = 0;
             isDead = true;
         }
-
-        if (amount < 0)
-        {
-            SendMessage("Flash");
-        }
     }
 
     private void OnCollisionEnter(Collision collision)

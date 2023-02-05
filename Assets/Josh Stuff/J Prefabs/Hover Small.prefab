@@ -102,6 +102,7 @@ MonoBehaviour:
   aClips: []
   explosion: {fileID: 8582961250641067295, guid: bfbd1493c3426554bbbd0e99e2ffa17e, type: 3}
   currency: {fileID: 0}
+  ps: {fileID: 0}
 --- !u!195 &221386939820695210
 NavMeshAgent:
   m_ObjectHideFlags: 0

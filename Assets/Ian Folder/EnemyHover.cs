@@ -66,9 +66,5 @@ public class EnemyHover : Enemy
     public override void ChangeHealth(float amount)
     {
         base.ChangeHealth(amount);
-        if (amount < 0)
-        {
-            ps.Play();
-        }
     }
 }
