@@ -104,13 +104,6 @@ public class SapTurret : Turret
             projectile.GetComponent<SapScript>().damage = damageLevel3 * base.multiplier;
             projectile.GetComponent<SapScript>().duration = duration3;
             projectile.GetComponent<SapScript>().slowPercentage = slowPercentage3;
-
-            projectile = Instantiate(sap, projectileSpawn3.position, Quaternion.identity);
-            projectile.GetComponent<SapScript>().target = closest.transform;
-            projectile.GetComponent<SapScript>().speed = speedLevel3 * base.multiplier;
-            projectile.GetComponent<SapScript>().damage = damageLevel3 * base.multiplier;
-            projectile.GetComponent<SapScript>().duration = duration3;
-            projectile.GetComponent<SapScript>().slowPercentage = slowPercentage3;
         }
     }
 }
