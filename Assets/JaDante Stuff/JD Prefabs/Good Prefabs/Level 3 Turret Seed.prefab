@@ -52,7 +52,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43eedcbc884b8134aacc2b635a3ea018, type: 2}
+  - {fileID: 2100000, guid: 811f80dd30fce234e98bd3df5edc8ac5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43eedcbc884b8134aacc2b635a3ea018, type: 2}
+  - {fileID: 2100000, guid: 811f80dd30fce234e98bd3df5edc8ac5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,7 +222,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43eedcbc884b8134aacc2b635a3ea018, type: 2}
+  - {fileID: 2100000, guid: 811f80dd30fce234e98bd3df5edc8ac5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -347,7 +347,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4eded27196efea843bd98438c7e5ef7a, type: 2}
+  - {fileID: 2100000, guid: 811f80dd30fce234e98bd3df5edc8ac5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -522,7 +522,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4eded27196efea843bd98438c7e5ef7a, type: 2}
+  - {fileID: 2100000, guid: 811f80dd30fce234e98bd3df5edc8ac5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -564,11 +564,16 @@ MonoBehaviour:
   speedLevel3: 15
   turretLevel: 0
   turretIndex: 0
+  shootClips:
+  - {fileID: 8300000, guid: dc682ed1167941946bbdb129fdbaab24, type: 3}
+  - {fileID: 8300000, guid: 3f36fb2a5edba804daacad93e8f46c3c, type: 3}
+  - {fileID: 8300000, guid: 667614e0d7c940d4591a558c53ce4224, type: 3}
+  multiplier: 0
   center: {x: 0, y: 0, z: 0}
   projectileSpawn1: {fileID: 6007631994916663089}
   projectileSpawn2: {fileID: 4652108899006827938}
   projectileSpawn3: {fileID: 2701002377393437450}
-  attackRange: 100
+  attackRange: 20
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128

@@ -11,6 +11,9 @@ public abstract class Turret : MonoBehaviour
     public float turretLevel;
     public int turretIndex;
 
+    protected AudioSource aSource;
+    public AudioClip[] shootClips;
+
     private Tree tree;
     public float multiplier;
     //public TextMeshPro turretText;
@@ -18,6 +21,7 @@ public abstract class Turret : MonoBehaviour
     protected virtual void Start()
     {
         tree = GameObject.Find("THE LAST TREE").GetComponent<Tree>();
+        aSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Update()

@@ -13,11 +13,11 @@ public class SeedTurret : Turret
     private GameObject projectile;
 
     // change mesh for upgrade
-    private void Start()
+    protected override void Start()
     {
         base.Start();
     }
-    private void Update()
+    protected override void Update()
     {
         base.Update();
         //Debug.Log(turretLevel);
@@ -55,6 +55,7 @@ public class SeedTurret : Turret
     public void Attack(GameObject closest)
     {
         transform.LookAt(closest.transform.position);
+        bool fired = false;
 
         if(projectile == null && turretLevel == 1)
         {
@@ -69,6 +70,8 @@ public class SeedTurret : Turret
             projectile.GetComponent<SeedScript>().target = closest.transform;
             projectile.GetComponent<SeedScript>().speed = speedLevel1 * base.multiplier;
             projectile.GetComponent<SeedScript>().damage = damageLevel1 * base.multiplier;
+
+            fired = true;
         }
         else if(projectile == null && turretLevel == 2)
         {
@@ -81,6 +84,8 @@ public class SeedTurret : Turret
             projectile.GetComponent<SeedScript>().target = closest.transform;
             projectile.GetComponent<SeedScript>().speed = speedLevel2 * base.multiplier;
             projectile.GetComponent<SeedScript>().damage = damageLevel2 * base.multiplier;
+
+            fired = true;
         }
         else if (projectile == null && turretLevel == 3)
         {
@@ -98,6 +103,14 @@ public class SeedTurret : Turret
             projectile.GetComponent<SeedScript>().target = closest.transform;
             projectile.GetComponent<SeedScript>().speed = speedLevel3 * base.multiplier;
             projectile.GetComponent<SeedScript>().damage = damageLevel3 * base.multiplier;
+
+            fired = true;
+        }
+
+        if (fired)
+        {
+            base.aSource.clip = base.shootClips[Random.Range(0, shootClips.Length - 1)];
+            base.aSource.Play();
         }
     }
 }

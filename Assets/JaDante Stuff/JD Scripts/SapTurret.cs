@@ -15,11 +15,11 @@ public class SapTurret : Turret
     private GameObject projectile;
 
     // change mesh for upgrade
-    private void Start()
+    protected override void Start()
     {
         base.Start();
     }
-    private void Update()
+    protected override void Update()
     {
         base.Update();
         //turretText.text = turretLevel.ToString();
@@ -56,6 +56,7 @@ public class SapTurret : Turret
     public void Attack(GameObject closest)
     {
         transform.LookAt(closest.transform.position);
+        bool fired = false;
 
         if (projectile == null && turretLevel == 1)
         {
@@ -72,6 +73,8 @@ public class SapTurret : Turret
             projectile.GetComponent<SapScript>().damage = damageLevel1 * base.multiplier;
             projectile.GetComponent<SapScript>().duration = duration1;
             projectile.GetComponent<SapScript>().slowPercentage = slowPercentage1;
+
+            fired = true;
         }
         else if (projectile == null && turretLevel == 2)
         {
@@ -88,6 +91,8 @@ public class SapTurret : Turret
             projectile.GetComponent<SapScript>().damage = damageLevel2 * base.multiplier;
             projectile.GetComponent<SapScript>().duration = duration2;
             projectile.GetComponent<SapScript>().slowPercentage = slowPercentage2;
+
+            fired = true;
         }
         else if (projectile == null && turretLevel == 3)
         {
@@ -104,6 +109,14 @@ public class SapTurret : Turret
             projectile.GetComponent<SapScript>().damage = damageLevel3 * base.multiplier;
             projectile.GetComponent<SapScript>().duration = duration3;
             projectile.GetComponent<SapScript>().slowPercentage = slowPercentage3;
+
+            fired = true;
+        }
+
+        if (fired)
+        {
+            base.aSource.clip = base.shootClips[Random.Range(0, shootClips.Length - 1)];
+            base.aSource.Play();
         }
     }
 }

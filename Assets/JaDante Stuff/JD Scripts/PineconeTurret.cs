@@ -14,11 +14,11 @@ public class PineconeTurret : Turret
     private GameObject projectile;
 
     // change mesh for upgrade
-    private void Start()
+    protected override void Start()
     {
         base.Start();
     }
-    private void Update()
+    protected override void Update()
     {
         base.Update();
         //turretText.text = turretLevel.ToString();
@@ -55,6 +55,7 @@ public class PineconeTurret : Turret
     public void Attack(GameObject closest)
     {
         transform.LookAt(closest.transform.position);
+        bool fired = false;
 
         if (projectile == null && turretLevel == 1)
         {
@@ -69,6 +70,8 @@ public class PineconeTurret : Turret
             projectile.GetComponent<PineconeScript>().speed = speedLevel1 * base.multiplier;
             projectile.GetComponent<PineconeScript>().damage = damageLevel1 * base.multiplier;
             projectile.GetComponent<PineconeScript>().damageRange = aoeRadius1;
+
+            fired = true;
         }
         else if (projectile == null && turretLevel == 2)
         {
@@ -83,6 +86,8 @@ public class PineconeTurret : Turret
             projectile.GetComponent<PineconeScript>().speed = speedLevel2;
             projectile.GetComponent<PineconeScript>().damage = damageLevel2;
             projectile.GetComponent<PineconeScript>().damageRange = aoeRadius2;
+
+            fired = true;
         }
         else if (projectile == null && turretLevel == 3)
         {
@@ -103,6 +108,14 @@ public class PineconeTurret : Turret
             projectile.GetComponent<PineconeScript>().speed = speedLevel3;
             projectile.GetComponent<PineconeScript>().damage = damageLevel3;
             projectile.GetComponent<PineconeScript>().damageRange = aoeRadius3;
+
+            fired = true;
+        }
+
+        if(fired)
+        {
+            base.aSource.clip = base.shootClips[Random.Range(0, shootClips.Length - 1)];
+            base.aSource.Play();
         }
     }
 }
