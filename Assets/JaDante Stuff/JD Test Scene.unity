@@ -1532,13 +1532,13 @@ MonoBehaviour:
     tower2: {fileID: 5282282654230853628, guid: 97b532c810220cb4689d52803ac7985d, type: 3}
     tower3: {fileID: 5282282654230853628, guid: 97b532c810220cb4689d52803ac7985d, type: 3}
     towerTransparent: {fileID: 6045313175206479100, guid: 23b42200c2f2a1747b6208702e3cb5d2, type: 3}
-  - tower: {fileID: 919132148576410342}
+  - tower: {fileID: 3046507631462032441, guid: b56569cadb94bb144ad66cebf68fdf44, type: 3}
     tower2: {fileID: 3046507631462032441, guid: b56569cadb94bb144ad66cebf68fdf44, type: 3}
     tower3: {fileID: 3046507631462032441, guid: b56569cadb94bb144ad66cebf68fdf44, type: 3}
     towerTransparent: {fileID: 2249859712400682725, guid: 2c23fa3015562e344b77e08d6719a0b1, type: 3}
-  towerCostLevel1: 100
-  towerCostLevel2: 200
-  towerCostLevel3: 300
+  towerCostLevel1: 10
+  towerCostLevel2: 10
+  towerCostLevel3: 10
   playerCam: {fileID: 95318853}
   currentPoints: 2500
 --- !u!4 &223724096 stripped
@@ -1727,8 +1727,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 365647484}
+  - component: {fileID: 365647485}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: THE LAST TREE
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1749,6 +1750,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &365647485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365647483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0bd8ae5bb1d5545994667d5925631c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  globalUpgradePrice: 50
+  plantMultiplier: 1
+  weaponUpgradePrice: 200
+  weaponMultiplier: 1
 --- !u!1001 &400747156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2904,6 +2923,7 @@ GameObject:
   - component: {fileID: 539885916}
   - component: {fileID: 539885915}
   - component: {fileID: 539885914}
+  - component: {fileID: 539885918}
   m_Layer: 7
   m_Name: Temp Enemy
   m_TagString: Enemy
@@ -2989,6 +3009,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539885918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539885913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f794259325eb4419d3f728deb0f4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aClips: []
+  damage: 10
+  explosion: {fileID: 0}
+  currency: {fileID: 0}
 --- !u!1001 &559615351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3576,7 +3612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dummies: []
-  playerBuild: {fileID: 1279088605}
+  playerBuild: {fileID: 0}
 --- !u!4 &757346282
 Transform:
   m_ObjectHideFlags: 0
@@ -5638,17 +5674,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1279088605 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -1216848484629972846, guid: 6022074ae1217cd468614143e689c928, type: 3}
-  m_PrefabInstance: {fileID: 124744649}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a6f714e33496e44bc8eda01a0f489d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1282006792
 PrefabInstance:
   m_ObjectHideFlags: 0
