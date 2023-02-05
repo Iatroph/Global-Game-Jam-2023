@@ -9,11 +9,11 @@ public class TowerManager : MonoBehaviour
     // raycast to certain tiles to build walls/turrents
     [Header("Tower Prefab/Prices")]
     [SerializeField] public TowerStruct[] towers;
-    public float towerCostLevel1, towerCostLevel2, towerCostLevel3;
+    public int towerCostLevel1, towerCostLevel2, towerCostLevel3;
 
     public Camera playerCam;
 
-    public float currentPoints;
+    public int currentPoints = 0;
 
     private int index = 0;
     private bool allowOutline, outlineDrawn = false, redrawOutline = false;
@@ -39,7 +39,11 @@ public class TowerManager : MonoBehaviour
                         {
                             //Debug.Log(hit.transform.name);
                             //Debug.DrawLine(playerCam.transform.position, hit.point, Color.red, 2f);
-                            currentPoints -= towerCostLevel1;
+                            //currentPoints -= towerCostLevel1;
+                            if(GameManager.Instance != null)
+                            {
+                                GameManager.Instance.AddCurrency(-towerCostLevel1);
+                            }
                             tower = Instantiate(towers[index].tower, hit.transform);
                             endVal = hit.transform.position.y + 2;
                             tower.transform.DOMoveY(endVal, 1);
@@ -52,7 +56,11 @@ public class TowerManager : MonoBehaviour
                         }
                         else if (hit.transform.CompareTag("Wall") && hit.transform.childCount == 3 && hit.transform.GetChild(2).GetComponent<Turret>().turretLevel == 1 && currentPoints > towerCostLevel2)
                         {
-                            currentPoints -= towerCostLevel2;
+                            //currentPoints -= towerCostLevel2;
+                            if (GameManager.Instance != null)
+                            {
+                                GameManager.Instance.AddCurrency(-towerCostLevel2);
+                            }
                             tower = hit.transform.GetChild(2).gameObject;
                             Destroy(tower);
                             tower = Instantiate(towers[hit.transform.GetChild(2).GetComponent<Turret>().turretIndex].tower2, hit.transform);
@@ -62,7 +70,11 @@ public class TowerManager : MonoBehaviour
                         }
                         else if(hit.transform.CompareTag("Wall") && hit.transform.childCount == 3 && hit.transform.GetChild(2).GetComponent<Turret>().turretLevel == 2 && currentPoints > towerCostLevel3)
                         {
-                            currentPoints -= towerCostLevel3;
+                            //currentPoints -= towerCostLevel3;
+                            if (GameManager.Instance != null)
+                            {
+                                GameManager.Instance.AddCurrency(-towerCostLevel3);
+                            }
                             tower = hit.transform.GetChild(2).gameObject;
                             Destroy(tower);
                             tower = Instantiate(towers[hit.transform.GetChild(2).GetComponent<Turret>().turretIndex].tower3, hit.transform);
