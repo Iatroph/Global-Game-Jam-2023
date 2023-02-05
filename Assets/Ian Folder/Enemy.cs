@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     protected NavMeshAgent agent;
+    protected AudioSource aSource;
 
     protected float maxHealth;
     protected float currentHealth;
@@ -13,8 +14,9 @@ public class Enemy : MonoBehaviour
     protected bool isDead;
 
     protected Animator animator;
+    public AudioClip[] aClips;
 
-    public GameObject tree;
+    protected GameObject tree;
 
     public GameObject explosion;
 
@@ -26,6 +28,14 @@ public class Enemy : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        aSource = GetComponent<AudioSource>();
+
+        tree = GameObject.Find("THE LAST TREE");
+
+        //Loop hover sfx
+        aSource.clip = aClips[Random.Range(0, aClips.Length - 1)];
+        aSource.Play();
+        aSource.loop = true;
 
         InvokeRepeating("FSMProcess", 0f, 0.1f);
     }
