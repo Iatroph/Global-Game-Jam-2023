@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4647162244772482783}
   - component: {fileID: 5461745723771761188}
   - component: {fileID: 2530461518432786856}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Sap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,3 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   speed: 0
+  duration: 0
+  slowPercentage: 0
+  target: {fileID: 0}

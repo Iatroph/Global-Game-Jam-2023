@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6956380182628270084}
   - component: {fileID: 7725937631854984447}
   - component: {fileID: 4879993613118833875}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Pinecone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,5 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c9986c656c34f4e8a823838b56da55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageRange: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   damage: 0
   speed: 0
+  aoeRadius: 0
+  target: {fileID: 0}
