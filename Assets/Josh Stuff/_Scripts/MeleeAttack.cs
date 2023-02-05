@@ -14,9 +14,14 @@ public class MeleeAttack : MonoBehaviour
 
     public GameObject damageParticle;
 
+    private AudioSource attackSource;
+    public AudioClip[] hitClips;
+    public AudioClip[] missClips;
+
     private void Awake()
     {
         playerBuild = GetComponent<PlayerBuild>();
+        attackSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -49,9 +54,17 @@ public class MeleeAttack : MonoBehaviour
                 {
                     hit.transform.GetComponent<Enemy>().ChangeHealth(-meleeDamage);
                     GameObject sparks = Instantiate(damageParticle, hit.point, Quaternion.identity);
+
+                    attackSource.clip = hitClips[Random.Range(0, hitClips.Length - 1)];
+                    attackSource.Play();
                 }
                 Debug.Log(hit.transform.name);
             }
+        }
+        else //missed attack
+        {
+            attackSource.clip = missClips[Random.Range(0, missClips.Length - 1)];
+            attackSource.Play();
         }
         yield return new WaitForSeconds(meleeCooldown);
         canMelee = true;
