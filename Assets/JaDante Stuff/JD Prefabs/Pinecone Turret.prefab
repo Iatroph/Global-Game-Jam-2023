@@ -438,5 +438,5 @@ MonoBehaviour:
   attackRange: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   pinecone: {fileID: 6956380182628270085, guid: 3d46e608e033233429f6e904f9f32e78, type: 3}

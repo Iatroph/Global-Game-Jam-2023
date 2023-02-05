@@ -340,7 +340,7 @@ MonoBehaviour:
   attackRange: 100
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   sap: {fileID: 4647162244772482782, guid: b7038e9719d2cd644be969fc2fe3ff45, type: 3}
 --- !u!1 &5085410721607075237
 GameObject:
