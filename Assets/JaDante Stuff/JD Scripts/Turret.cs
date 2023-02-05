@@ -10,5 +10,18 @@ public abstract class Turret : MonoBehaviour
     public float damageLevel3, speedLevel3;
     public float turretLevel;
     public int turretIndex;
+
+    private Tree tree;
+    public float multiplier;
     //public TextMeshPro turretText;
+
+    protected virtual void Start()
+    {
+        tree = GameObject.Find("THE LAST TREE").GetComponent<Tree>();
+    }
+
+    protected virtual void Update()
+    {
+        multiplier = tree.plantMultiplier;
+    }
 }
