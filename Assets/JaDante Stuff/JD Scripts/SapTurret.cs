@@ -24,7 +24,7 @@ public class SapTurret : Turret
         base.Update();
         //turretText.text = turretLevel.ToString();
 
-        Collider[] inRange = Physics.OverlapSphere(center, attackRange, enemyLayer.value);
+        Collider[] inRange = Physics.OverlapSphere(transform.position, attackRange, enemyLayer.value);
 
         if (inRange.Length > 0)
         {
