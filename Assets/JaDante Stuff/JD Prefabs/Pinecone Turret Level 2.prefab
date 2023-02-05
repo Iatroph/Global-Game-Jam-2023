@@ -269,7 +269,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3046507631462032441}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af18d7b1a3a45ff4eb4410c8ae8597a2, type: 3}
   m_Name: 
@@ -282,7 +282,10 @@ MonoBehaviour:
   speedLevel3: 15
   turretLevel: 0
   turretIndex: 2
-  aoeRadius: 0
+  multiplier: 0
+  aoeRadius1: 0
+  aoeRadius2: 0
+  aoeRadius3: 0
   center: {x: 0, y: 0, z: 0}
   projectileSpawn1: {fileID: 6696110583604756083}
   projectileSpawn2: {fileID: 2895460026896414955}
