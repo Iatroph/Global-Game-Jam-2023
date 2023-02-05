@@ -10,7 +10,7 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canBuildOnTile = true;
+        
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class Tile : MonoBehaviour
 
     public void ToggleWallPlaced(bool toggle)
     {
-        wallPlaced= toggle;
+        wallPlaced = toggle;
     }
 
     private void OnCollisionEnter(Collision collision)

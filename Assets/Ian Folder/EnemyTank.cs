@@ -5,7 +5,7 @@ public class EnemyTank : Enemy
 {
     private TankStates stateCurrent = TankStates.Idle;
 
-    private ParticleSystem ps;
+    public ParticleSystem ps;
 
     public enum TankStates
     {
@@ -59,15 +59,12 @@ public class EnemyTank : Enemy
     {
         stateCurrent = TankStates.Dead;
         base.agent.destination = transform.position;
+        base.SpawnCurrency();
         base.Explode(false);
     }
 
     public override void ChangeHealth(float amount)
     {
         base.ChangeHealth(amount);
-        if (amount < 0)
-        {
-            ps.Play();
-        }
     }
 }

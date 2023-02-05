@@ -59,15 +59,12 @@ public class EnemyHover : Enemy
     {
         stateCurrent = HoverStates.Dead;
         base.agent.destination = transform.position;
+        base.SpawnCurrency();
         base.Explode(false);
     }
 
     public override void ChangeHealth(float amount)
     {
         base.ChangeHealth(amount);
-        if (amount < 0)
-        {
-            ps.Play();
-        }
     }
 }

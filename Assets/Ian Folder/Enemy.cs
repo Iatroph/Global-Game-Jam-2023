@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     protected float maxHealth;
     protected float currentHealth;
     protected float marchDelay = 0f;
+    protected float initSpeed;
     protected bool isDead;
 
     protected Animator animator;
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour
     protected GameObject tree;
 
     public GameObject explosion;
+    public GameObject currency;
 
     protected virtual void Start()
     {
@@ -26,10 +28,11 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         isDead = false;
 
+
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         aSource = GetComponent<AudioSource>();
-
+        initSpeed = agent.speed;
         tree = GameObject.Find("THE LAST TREE");
 
         //Loop hover sfx
@@ -57,11 +60,6 @@ public class Enemy : MonoBehaviour
             currentHealth = 0;
             isDead = true;
         }
-
-        if (amount < 0)
-        {
-            SendMessage("Flash");
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -80,5 +78,29 @@ public class Enemy : MonoBehaviour
             //Hurt the tree
         }
         Destroy(gameObject);
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public IEnumerator SlowDown(float duration, float modifier)
+    {
+        agent.speed = initSpeed * modifier;
+        float elapsedTime = 0f;
+
+        while(elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    protected void SpawnCurrency()
+    {
+        Instantiate(currency);
     }
 }

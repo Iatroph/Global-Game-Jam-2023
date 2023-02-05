@@ -7,6 +7,8 @@ using UnityEngine.AI;
 
 public class PlayerBuild : MonoBehaviour
 {
+    public bool isInBuildMode;
+
     public Camera playerCam;
 
     public GameObject wallObject;
@@ -19,6 +21,8 @@ public class PlayerBuild : MonoBehaviour
     public bool canBuild;
 
     public bool pathWouldBeBlocked;
+
+    public LayerMask ignore;
 
     [Header("Wall Parameters")]
     public float wallRiseSpeed = 0.8f;
@@ -42,6 +46,7 @@ public class PlayerBuild : MonoBehaviour
 
         if(Input.GetMouseButton(1))
         {
+            isInBuildMode = true;
             ShowWallOutline();
             if (Input.GetMouseButtonDown(0))
             {
@@ -50,14 +55,16 @@ public class PlayerBuild : MonoBehaviour
         }
         else
         {
+            isInBuildMode = false;
             hologram.ToggleMeshRenderer(false);
+            hologram.transform.position = new Vector3(0, -2f, 0);
         }
 
     }
 
     public void PlaceWall()
     {
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, 8f))
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, 8f, ~ignore))
         {
             if (hit.point != null)
             {
@@ -81,7 +88,7 @@ public class PlayerBuild : MonoBehaviour
 
     public void ShowWallOutline()
     {
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit2, 8f)/* && allowOutline*/)
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit2, 8f, ~ignore)/* && allowOutline*/)
         {
             if (hit2.point != null)
             {
@@ -100,6 +107,11 @@ public class PlayerBuild : MonoBehaviour
                         hologram.ToggleMeshRenderer(true);
 
                     }
+                }
+                else
+                {
+                    hologram.ToggleMeshRenderer(false);
+
                 }
             }
 

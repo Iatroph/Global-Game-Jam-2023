@@ -21,6 +21,9 @@ public class JoshTestEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navAgent.SetDestination(new Vector3(0, 0, 0));
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            navAgent.SetDestination(new Vector3(0, 0, 0));
+        }
     }
 }
