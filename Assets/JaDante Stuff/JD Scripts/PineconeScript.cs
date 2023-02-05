@@ -7,7 +7,7 @@ public class PineconeScript : MonoBehaviour
     public float damageRange;
     public LayerMask enemyLayer;
     public float damage, speed;
-    public float aoeRadius;
+    //public float aoeRadius;
     public Transform target;
 
     private void Start()
@@ -17,12 +17,20 @@ public class PineconeScript : MonoBehaviour
     {
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * 0.01f);
+        if (target != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * 1.5f * Time.deltaTime);
+        }
+
+        if (target == null)
+        {
+            Destroy(gameObject);
+        }
     }
-    /*
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Collider[] enemies = Physics.OverlapSphere(transform.position, damageRange, enemyLayer);
 
@@ -30,19 +38,6 @@ public class PineconeScript : MonoBehaviour
             {
                 enemy.gameObject.GetComponent<Enemy>().ChangeHealth(-damage);
             }
-            Destroy(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
-    
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
             Destroy(gameObject);
         }
     }

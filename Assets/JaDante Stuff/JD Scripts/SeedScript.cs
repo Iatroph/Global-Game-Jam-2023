@@ -11,12 +11,6 @@ public class SeedScript : MonoBehaviour
     {
 
     }
-    private void LateUpdate()
-    {
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
-        //transform.position = Vector3.MoveTowards(transform.position, target.position, speed * 0.01f * Time.deltaTime);
-    }
 
     private void Update()
     {
@@ -30,21 +24,6 @@ public class SeedScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            other.gameObject.GetComponent<Enemy>().ChangeHealth(-damage);
-            Destroy(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")

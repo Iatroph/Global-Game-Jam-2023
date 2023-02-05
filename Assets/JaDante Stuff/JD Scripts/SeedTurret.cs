@@ -27,9 +27,11 @@ public class SeedTurret : Turret
 
         if (inRange.Length > 0)
         {
-            Collider closest = FindClosest(inRange);
+            //Collider closest = FindClosest(inRange);
             //Debug.Log(closest.name);
-            Attack(closest.gameObject);
+            //Attack(closest.gameObject);
+            Collider lowest = FindClosest(inRange);
+            Attack(lowest.gameObject);
         }
     }
     private Collider FindClosest(Collider[] inRange)
